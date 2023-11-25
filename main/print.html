@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+  @media screen {
+    .printOnly {
+        display: none !important;
+    }
+ }
+ @media print {
+    .printOnly {
+        display: none !important;
+    }
+ }
+</style>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css">
+  <title>Test</title>
+</head>
+
+<body>
+
+  <form class="controls noprint" method="POST" name="inputData" align="center">
+    <p><input type="text" name="lname" value="агеева" autofocus> Фамилия</p>
+    <p><input type="text" name="fname" value="оксана"> Имя</p>
+    <p><input type="text" name="mname" value="николаевна"> Отчество</p>
+    <p><input type="radio" value="s1" name="choice" checked>Сайт-нотариуса.рф</p>
+     <p><input type="radio" value="s2" name="choice">notariat.ru</p>
+       <p><input type="reset" value="Вернуть пример ввода" tabindex=1 > <input type="submit" value="Распечатать" ></p>
+     </form>
+<div class =" container mt-5">
+  <div class = "printOnly notvisible"><img src="sources\logo_mine.png" height="255" width="225" class="ml-5 mr-3 mt-5 ">
+  <div class="printOnly notvisible"> <img src="sources\line1047.png" height="13" width="1047" class="px-2"></div>
+  <div class="printOnly notvisible"><img src="sources\phone.png" height="23" width="32" class="mt-2"></div>
+  <div class="printOnly notvisible"><img src="sources\phone2.png" height="31" width="31" class="mt-1"></div>
+  <div class="printOnly notvisible"><img src="sources\phone3.png" height="32" width="31" class="mt-1 row ml-3"></div>
+  <div class="printOnly notvisible"><img src="sources\mail.png" height="24" width="30" class="mt-1"></div>
+  <div class="printOnly notvisible"><img src="sources\enternet.png" height="30" width="31" class="mt-1"></div>
+  </div>
+
+  <script>
+    //action="print.html" 
+//import { myFunction } from './functions.js';
+/*1
+var form = document.querySelector("form");
+form.addEventListener('submit', getFormValue);
+
+  
+ function getFormValue(event) {
+
+//alert( +' '+ form.elements[1].value +' '+ form.elements[2].value);
+var selector = document.querySelector('input[name="choice"]:checked').value;
+Visicode(form.elements[0].value, form.elements[1].value, form.elements[2].value, selector);
+//
+//s1 or s2
+//https://myrusakov.ru/js-retrieve-form-data.html examples
+}
+
+2*/
+
+
+
+  function Visicode(f, i, o, svar) {
+      var Datas = []
+      Datas[0] = "Нотариус";
+      Datas[1] = f;
+      //"КОМАРОВ";
+       Datas[2] = i + " " + o;
+       //"ВАДИМ ВАСЛЬЕВИЧ";
+      Datas[3] = "г. Барнаул, пр-кт Ленина, 151В";
+      Datas[4] = "+7 (3852) 57-08-77";
+      Datas[5] = "+929-397-0877";
+      Datas[6] = "NotariaL@mail.ru";
+      //= document.getElementsByClassName('printTest');
+      var ImgS = document.getElementsByClassName('printOnly');
+      var siteUer = "d"
+      if (svar == "s1"){
+        siteUer = "сайт-нотариуса.рф"
+      }else if(svar == "s2"){
+        siteUer = "notariat.ru"
+      }
+      var oldPage = document.body.innerHTML;
+      var visSrtcture = '<div class="container-fluid" style="height: 594px;	width: 1067px;"><div class="row" style="height: 467px;	width: 1067px;"> ' + '<div style="height: 467px;	width: 354px;"><div class="mr-4 mt-3 ml-4"><div class="ml-3">'+ ImgS[0].innerHTML + '</div></div></div>' + '<div class="mt-5 pl-4" style="height: 395px;	width:679 px;" ><h2 class="mt-2">' + Datas[0] + '</h2><h1 class="mt-3">' + Datas[1] + '</h1>' + '<h1 class="mt-3">' + Datas[2] + '</h1><h2 class="mt-4">' + Datas[3] + '</h2></div></div><div>'+ImgS[1].innerHTML+'</div><div class="row" style="height: 118px;	width: 1067px;">' + '<div style="height: 118px;	width: 593px;"><div class="row ml-5 mt-1">'+ImgS[2].innerHTML + '<h3 class=" ml-3 mt-1">' + Datas[4] + '</h3></div><div class="row ml-5">'+ ImgS[3].innerHTML + '<h3 class="ml-3">' + Datas[5] + '</h3>'+ImgS[4].innerHTML+'</div></div>' + '<div style="height: 118px;	width: 450px;"><div class="row ml-2 mt-1">'+ ImgS[5].innerHTML + '<h3 class=" ml-3">' + Datas[6] + '</h3></div><div class="row ml-2">'+ ImgS[6].innerHTML + '<h3 class="ml-3">' + siteUer + '</h3></div></div></div></div>';
+      document.body.innerHTML = ' <html><head><style>@media print {@page { size: 2480px 3508px;}}</style></head><body><table ALIGN=center><tbody><tr><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th></tr><tr><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th></tr><tr><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th></tr><tr><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th></tr><tr><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th><th ALIGN=center class = "border border-dark" style="height:620px;	width:877px;">' + visSrtcture + '</th></tr><tbody><table></body></html>';
+      window.print();
+      document.body.innerHTML = oldPage;
+      document.close();
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ </body>
+
+</html>
